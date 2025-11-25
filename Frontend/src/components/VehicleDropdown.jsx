@@ -9,7 +9,10 @@ function VehicleDropdown() {
   return (
     <ul className="flex flex-col items-center text-white pb-4">
       {vehicles.map((vehicle, index) => (
-        <li className="text-xl hover:text-black cursor-pointer" key={index}>
+        <li
+          className="text-xl hover:text-black cursor-pointer duration-200 ease-in-out"
+          key={index}
+        >
           <NavLink to={`vehiclecreate/${vehicle}`}>{vehicle}</NavLink>
         </li>
       ))}

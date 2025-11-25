@@ -8,8 +8,6 @@ function AddVehicle() {
   const [vehicleFields, setVehicleFields] = useState([{}]);
   const [formData, setFormData] = useState({ VehicleType: vehicle });
 
-  //Consuming the API for getting fields of the vehicle
-
   useEffect(() => {
     async function fetchFields() {
       var info = (await axios.get(BASE_URL + "/fields")).data;
@@ -50,7 +48,7 @@ function AddVehicle() {
   };
   return (
     <section className="w-full bg-gray-200 p-10 min-h-screen">
-      <div className="w-full max-w-xl mx-auto flex flex-col mt-auto p-8 bg-white rounded-lg items-center">
+      <div className="w-full max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto flex flex-col mt-auto p-8 bg-white rounded-lg items-center">
         <h1 className="text-3xl font-semibold pb-4 mx-auto relative">
           Create a new{" "}
           <span className="text-orange-700 font-extrabold tracking-tight">
@@ -60,25 +58,26 @@ function AddVehicle() {
         </h1>
         <form
           onSubmit={handleSubmit}
-          className="mt-4 flex flex-col gap-3 items-center"
+          className="mt-4 flex flex-col gap-3 items-center w-full"
         >
           {/* <h2>{vehicle} Form</h2>  */}
           {vehicleFields.map((field, index) => (
             <div
-              className="pl-4 text-xl font-semibold grid grid-cols-[100px_1fr] items-center"
+              className="pl-4 text-lg font-semibold grid grid-cols-[100px_1fr] items-center w-full justify-around"
               key={index}
             >
-              <label htmlFor={field.name}>{field.name}</label>
+              <label className="sm:w-36" htmlFor={field.name}>
+                {field.name}
+              </label>
               <input
                 type={field.type}
-                className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                className="w-full mt-2 py-2 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                 value={formData[field.name] || ""}
                 onChange={handleChange}
                 name={field.name}
                 id={field.name}
                 placeholder={`Enter ${field.name}`}
                 required={field.required || false}
-                // pattern={field.type == "number" ? "[d]" : null}
               />
             </div>
           ))}
