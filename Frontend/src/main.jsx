@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import AddVehicle from "./pages/AddVehicle.jsx";
 import {
@@ -17,7 +16,6 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route path="" index element={<Home />} />
       <Route path="vehiclecreate/:vehicle" element={<AddVehicle />} />
-      {/* <Route loader={githubLoader} path="github" element={<Github />} /> */}
     </Route>
   )
 );
