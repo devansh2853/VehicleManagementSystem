@@ -48,13 +48,13 @@ function AddVehicle() {
   };
   return (
     <section className="w-full bg-gray-200 p-10 min-h-screen">
-      <div className="w-full max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto flex flex-col mt-auto p-8 bg-white rounded-lg items-center">
-        <h1 className="text-3xl font-semibold pb-4 mx-auto relative">
+      <div className="w-full sm:max-w-[950.%] md:max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto flex flex-col mt-auto p-8 bg-white rounded-lg items-center">
+        <h1 className="text-3xl font-semibold pb-4 mx-auto relative sm:text-center">
           Create a new{" "}
           <span className="text-orange-700 font-extrabold tracking-tight">
             {vehicle}
           </span>
-          <div className="h-1 w-full absolute bg-orange-700 top-10 rounded-md left-1/2 -translate-x-1/2"></div>
+          <div className="h-1 w-full absolute bg-orange-700 bottom-0 rounded-md left-1/2 -translate-x-1/2"></div>
         </h1>
         <form
           onSubmit={handleSubmit}
@@ -63,7 +63,7 @@ function AddVehicle() {
           {/* <h2>{vehicle} Form</h2>  */}
           {vehicleFields.map((field, index) => (
             <div
-              className="pl-4 text-lg font-semibold grid grid-cols-[100px_1fr] items-center w-full justify-around"
+              className="pl-4 text-lg font-semibold md:grid md:grid-cols-[100px_1fr] md:items-center w-full justify-around sm:flex sm:flex-col"
               key={index}
             >
               <label className="sm:w-36" htmlFor={field.name}>
